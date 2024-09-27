@@ -1,0 +1,759 @@
+:root{
+    --blanca: #ffffff;
+    --primario: #f55174;
+    --botones: #414141;
+    --fuentePrincipal: 'Poppins', sans-serif;
+    --fuenteSecundaria: "Josefin Slab", serif;
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fcf2f0;
+    color: white;
+    font-family: var(--fuentePrincipal);
+}
+
+/*Generales*/
+
+.fuente{
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
+}
+
+.fuente_label{
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.input_visibles{
+    margin-top: 0.5rem; 
+    display:none; 
+    border-radius: 0.5rem; 
+    width: 100%; 
+    height: 2rem; 
+    padding-left: 0.5rem;
+}
+
+option{
+    padding-top: .5rem;
+}
+
+/*Navegacion*/
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%; 
+    background-color: #f55174;
+    font-family: "Josefin Slab", serif;
+}
+
+.logo_imagen {
+    height: 10rem; 
+}
+
+.opcion_menu {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 1em; 
+    font-family: "Josefin Slab", serif;
+    font-size: 2.3rem;
+}
+
+.opcion_menu_2 {
+    margin: 0 0.2em; 
+    font-size: 1.9rem; 
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 10px;
+    border-style: dotted;
+    border-width: 0.1em;
+    border-color: #fcf2f0;
+    padding: 0.5em;
+    font-family: "Josefin Slab", serif;
+}
+
+.opcion_menu:hover {
+    border-style: dotted;
+    border-width: 0.2em;
+    border-color: #fcf2f0;
+    padding: 0.5em;
+}
+
+.opcion_menu_2:hover {
+    color: #414141;
+    border-color: #414141;
+}
+
+.menu .izquierda {
+    display: flex;
+    gap: 1em; 
+}
+
+.menu .derecha {
+    margin-left: auto;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #f55174;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+.dropdown-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #333;
+}
+
+
+
+.centro {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 1100px) {
+    .menu-toggle {
+        display: none; /* Elimina el botón hamburguesa en pantallas grandes */
+    }
+
+    /* El menú desplegable ya no es necesario en pantallas grandes */
+    .dropdown-menu {
+        display: none;
+    }
+
+    /* El menú horizontal se muestra */
+    .menu .izquierda, .menu .derecha {
+        display: flex;
+    }
+}
+
+/* Media query para pantallas menores a 1100px */
+@media (max-width: 1100px) {
+    /* Mostrar el botón de hamburguesa */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Ocultar los enlaces del menú principal en pantallas pequeñas */
+    .menu .izquierda, .menu .derecha {
+        display: none;
+    }
+
+    /* Mostrar el menú desplegable al hacer clic en el botón */
+    .dropdown-menu.active {
+        display: flex;
+    }
+}
+
+/*Main*/
+
+/*Section Galeria*/
+
+.galeria{
+    background-color: var(--primario);
+}
+
+.galeria img{
+    height: 15rem;
+}
+
+.contenedor_principal{
+    display: flex;
+    flex-direction: column;
+    padding-right: 20rem;
+    
+}
+
+@media (min-width: 1300px){
+    .contenedor_principal{
+        flex-direction: row;
+    }
+}
+
+/*Formulario*/
+
+.formulario{
+    width: min(60rem, 100%);/*utiliza el valor mas pequeño*/
+    margin: 0 auto;/*se utiliza cuando se tiene un elemento y el padre no es un display flex*/
+    padding: 2rem;
+    border-radius: 1rem;
+    font-family: var(--fuentePrincipal);
+}
+
+.formulario fieldset{
+    padding-bottom: 1rem;
+    margin: 1rem;
+    font-family: var(--fuentePrincipal);
+}
+
+.formulario legend{
+    color: var(--botones);
+    font-family: var(--fuentePrincipal);
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.contenedor{
+    background-color: var(--primario);
+    color: var(--botones);
+}
+
+.sombra{
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.contendor_cliente{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    column-gap: 1rem;
+    padding-left: 1rem;
+}
+
+@media (max-width: 820px) {
+
+    .contendor_cliente {
+        display: flex !important; /* Usar flexbox */
+        flex-direction: column; /* Alineación vertical */
+        gap: 1rem; /* Espacio entre campos */
+    }
+
+    .detalles_pedido {
+        display: flex !important; /* Cambiar de grid a flexbox */
+        flex-direction: column; /* Alinear elementos en una sola columna */
+        gap: 1rem; /* Espacio entre campos */
+    }
+
+    /* Ajuste para Contenedor de Pagos */
+    .contenedor_pagos {
+        display: flex !important; /* Cambiar de grid a flexbox */
+        flex-direction: column; /* Alinear elementos en una sola columna */
+        gap: 1rem; /* Espacio entre campos */
+    }
+    
+    .campo {
+        width: 100%; /* Aseguramos que cada campo ocupe todo el ancho */
+        margin-bottom: 1rem; /* Añadimos espacio entre los campos */
+    }
+
+    .input-text, select, textarea {
+        width: 100%; /* Aseguramos que los inputs ocupen todo el ancho */
+    }
+
+    .campo_boton .boton {
+        width: 100%; /* Botones ocupan todo el ancho */
+        margin-top: 1rem;
+    }
+}
+
+
+.campo:nth-child(1),
+.campo:nth-child(3)
+{
+    grid-column: 1/2;
+    width: 90%;
+}
+
+.campo:nth-child(2),
+.campo:nth-child(4)
+{
+    grid-column: 2/3;
+    width: 90%;
+}
+
+
+.detalles_pedido{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    column-gap: 1rem;
+    padding-left: 1rem;
+    margin-top: 1.5rem;
+}
+
+.detalles_pedido .campo:nth-child(1),
+.detalles_pedido .campo:nth-child(3),
+.detalles_pedido .campo:nth-child(5),
+.detalles_pedido .campo:nth-child(7),
+.detalles_pedido .campo:nth-child(9)
+{
+    grid-column: 1/2;
+    width: 80%;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+}
+
+.detalles_pedido .campo:nth-child(2),
+.detalles_pedido .campo:nth-child(4),
+.detalles_pedido .campo:nth-child(6),
+.detalles_pedido .campo:nth-child(8),
+.detalles_pedido .campo:nth-child(10)
+{
+    grid-column: 2/3;
+    width: 80%;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+}
+
+.detalles_pedido .campo:nth-child(11){
+    grid-column: 1/3;
+    width: 90%;
+    height: auto;
+}
+
+.contenedor_pagos{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    column-gap: 1rem;
+    padding-left: 1rem;
+    margin-top: 1.5rem;
+}
+
+.contenedor_pagos .campo:nth-child(3)
+{
+    grid-column: 1/3;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.campo_boton{
+    display: flex;
+    width: auto;
+    justify-content: center;
+}
+
+
+.campo_boton .boton{
+    font-family: var(--fuentePrincipal);
+    background-color: var(--botones);
+    color: var(--blanca);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    width: 25%;
+    text-align: center;
+    border: none;
+}
+
+@media (max-width: 600px) {
+    .boton {
+        width: 100%; /* Botones ocupan toda la pantalla en móviles */
+    }
+}
+
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 1.4rem;
+}
+
+.campo textarea{
+    resize: none;
+}
+
+
+@media (max-width: 768px) {
+    .detalles_pedido {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+        align-items: center; /* Alineación vertical para cada campo */
+    }
+
+    .campo {
+        display: flex;
+        flex-direction: column; /* Apila los elementos en columna */
+        justify-content: center; /* Alinea verticalmente */
+        width: 100%; /* Asegura que el campo ocupe todo el ancho */
+        height: 100%; /* Asegura una altura consistente */
+    }
+}
+
+
+@media (min-width: 768px) {
+    .campo_boton .boton {
+        width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .boton {
+        width: 100%; /* Botones ocupan todo el ancho en móviles */
+    }
+    
+    .campo_boton .boton {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .input-text {
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    .campo {
+        width: 100%; /* Aseguramos que los campos se ajusten en pantallas más pequeñas */
+        margin-bottom: 1rem;
+    }
+}
+
+.mi-timepicker-container {
+    position: relative;
+    z-index: 10;
+}
+
+.flatpickr-calendar {
+    z-index: 9999 !important; /* Asegura que el calendario esté encima de otros elementos */
+    position: absolute !important; /* Posiciona el calendario correctamente cerca del campo de entrada */
+    top: auto !important;
+    left: auto !important;
+}
+/**Estilos Tablita*/
+
+.estilo_tabla {
+    width: 38%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 16px;
+    text-align: left;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background-color: #ff5f75; /* Color de fondo rosa similar */
+    color: #000000;
+    padding-right: 2px;
+    font-family: var(--fuentePrincipal);
+}
+
+@media (max-width: 768px) {
+    .estilo_tabla {
+        font-size: 1.2rem; /* Ajustar tamaño de fuente en pantallas pequeñas */
+    }
+}
+
+.estilo_tabla thead tr {
+    background-color: #000; /* Fondo negro para el encabezado */
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.estilo_tabla h2{
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.estilo_tabla tbody tr {
+    border-bottom: 1px solid #ddd; /* Línea entre las filas */
+}
+
+.estilo_tabla th, .estilo_tabla td, .estilo_tabla tbody tr:nth-child(even), .estilo_tabla tbody tr {
+    padding: 12px 15px;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: var(--primario);
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--primario);
+}
+
+tbody td[colspan="4"] {
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--primario);
+    color: white;
+}
+
+tbody td {
+    width: 50%;
+}
+
+tr {
+    display: flex;
+    justify-content: space-between;
+}
+
+tr:nth-child(odd) {
+    background-color: var(--blanca);
+}
+
+tr:nth-child(even) {
+    background-color: var(--blanca);
+}
+
+tr > td, tr > th {
+    flex: 1;
+}
+
+tbody tr.separator {
+    background-color: var(--blanca);
+}
+
+tbody tr.separator td {
+    border: none;
+}
+
+@media (max-width: 768px) {
+
+    .estilo_tabla {
+        display: block;
+        margin-left: auto;
+        margin-right: auto; 
+        width: 57%;
+        padding: 0;
+    }
+
+    .estilo_tabla td {
+        display: flex; /* Usar flexbox para alinear los elementos dentro de cada celda */
+        justify-content: space-between; /* Asegurar que el contenido se distribuya uniformemente */
+        padding-left: 0;
+        text-align: center; /* Alinear el texto de la izquierda */
+        
+    }
+
+    .estilo_tabla tbody tr {
+        width: 100%;
+        background-color: var(--primario); /* Color de fondo para las filas */
+        border-bottom: 1px solid var(--primario);
+    }
+    
+}
+
+@media (max-width: 390px) {
+    .estilo_tabla {
+        display: block;
+        width: 100%;
+        padding: 0;
+    }
+
+    .estilo_tabla td {
+        display: flex; /* Usar flexbox para alinear los elementos dentro de cada celda */
+        justify-content: space-between; /* Asegurar que el contenido se distribuya uniformemente */
+        padding-left: 0;
+        text-align: center; /* Alinear el texto de la izquierda */
+        
+    }
+
+    .estilo_tabla tbody tr {
+        background-color: var(--primario); /* Color de fondo para las filas */
+        border-bottom: 1px solid var(--primario);
+    }
+
+}
+
+
+/*Footer*/
+.footer {
+    background-color: #f8f9fa;
+    padding: 2rem; 
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem; 
+}
+
+.footer-content p, .footer-content a {
+    color: #000000;
+    font-family: "Josefin Slab", serif;
+    font-size: 1.2rem; 
+    margin: 0.5rem 0;
+    font-weight: bold;
+}
+
+.social-icons img {
+    width: 1.5rem; 
+    margin: 0 0.5rem; 
+    transition: width 0.3s ease;
+}
+
+.subscription-form input {
+    padding: 1rem; 
+    margin: 0.5rem 0; 
+    border: 1px solid #ddd;
+    border-radius: 0.5rem; 
+    width: 12rem; 
+}
+
+.subscription-form button {
+    padding: 1rem 2rem; 
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #ff69b4;
+    color: white;
+    cursor: pointer;
+}
+
+.social-icons a:hover img {
+    width: 2rem; 
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    /* Ajustar el tamaño de los elementos */
+    h1 {
+        font-size: 24px;
+    }
+
+    .input-field {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    
+}
+
+/* Estilos para pantallas medianas (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    .input-field {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    
+}
+
+/* Estilos para pantallas grandes (laptops y computadoras de escritorio) */
+@media (min-width: 1025px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    .input-field {
+        width: 70%;
+        margin-bottom: 20px;
+    }
+
+
+}
+
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .contenedor_principal {
+        padding: 0 1rem;
+    }
+
+    .formulario {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .detalles_pedido {
+        grid-template-columns: 1fr;
+    }
+
+    .menu {
+        flex-direction: column;
+    }
+
+    .boton {
+        width: 100%;
+    }
+}
+
+/* Estilos para pantallas medianas (tabletas) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .contenedor_principal {
+        padding: 0 2rem;
+    }
+
+    .formulario {
+        width: 90%;
+    }
+
+    .detalles_pedido {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Estilos para pantallas grandes (escritorio) */
+@media (min-width: 1025px) {
+    .formulario {
+        width: 60rem;
+    }
+}
